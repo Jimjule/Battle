@@ -1,14 +1,22 @@
 class Game
 
-  attr_reader :player_one, :player_two
+  attr_reader :player_one, :player_two, :turn
 
   def initialize(player1, player2)
     @player_one = Player.new(player1)
     @player_two = Player.new(player2)
+    @turn = @player_one
   end
 
-  def attack(player)
-    player.take_damage
+  def attack
+    if @turn == @player_one
+      @player_two.take_damage
+      @turn = @player_two
+    elsif @turn == @player_two
+      @player_one.take_damage
+      @turn = @player_one
+    else fail "That isn't a valid player"
+    end
   end
 
 end
