@@ -12,6 +12,6 @@ feature 'enter names' do
     fill_in :name_one, with: 'Jimmy'
     fill_in :name_two, with: 'Hoju'
     click_button 'Submit'
-    expect(page).to have_content 'Hoju: 30'
+    expect(page).to have_content 'Jimmy: 60 HP' && 'Hoju: 60 HP'
   end
 end
