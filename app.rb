@@ -15,15 +15,14 @@ enable :sessions
   end
 
   get '/play' do
-    @player_name_one = $player_one.name
-    @player_name_two = $player_two.name
-    @player_one_hit_points = 60
-    @player_two_hit_points = 60
+    @player_one = $player_one
+    @player_two = $player_two
     erb(:play)
   end
 
   get '/attack' do
-    @player_name_two = $player_two.name
+    @player_two = $player_two
+    @player_two.take_damage
     erb :attack
   end
 

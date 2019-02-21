@@ -4,4 +4,11 @@ feature 'attack player 2' do
     click_button("Attack")
     expect(page).to have_content 'Hoju was attacked!!!'
   end
+
+  scenario 'Player 2 is attacked and loses hit points' do
+    sign_in_and_play
+    click_button("Attack")
+    click_button("Ouch")
+    expect(page).to have_content 'Hoju: 50 HP'
+  end
 end
