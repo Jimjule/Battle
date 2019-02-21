@@ -26,5 +26,9 @@ enable :sessions
     erb :attack
   end
 
+  get '/end' do
+    erb :end
+  end
+
 run! if app_file == $0
 end
